@@ -28,5 +28,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Feel free to contribute to the improvement of this website by submitting pull requests or opening issues. Thank you for visiting!
+<div style="text-align:center">
+    <p style="color: #3F51B5; font-size: 24px;">Thank you for visiting!</p>
+    <img src="logo.png" alt="My School Logo" width="100px" style="animation: pulse 1s infinite alternate;">
+</div>
 
+<style>
+    @keyframes pulse {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.1);
+        }
+    }
+</style>

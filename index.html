@@ -43,6 +43,82 @@
             text-align: center;
             padding: 20px;
         }
+        .testimonial-carousel {
+            overflow: hidden;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .testimonial-carousel-content {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .testimonial-card {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .testimonial-card:last-child {
+            margin-right: 0;
+        }
+        .testimonial {
+            margin-bottom: 10px;
+        }
+        .testimonial footer {
+            font-style: italic;
+            color: #555;
+        }
+        .testimonial-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .testimonial-carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+        .heading {
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .grid-item img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .grid-item img:hover {
+            transform: scale(1.1);
+        }
+        .program-card {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .program-card h3 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -54,35 +130,83 @@
     </div>
     <div class="container">
         <section class="section">
-            <h2>About Us</h2>
+            <h2 class="heading">About Us</h2>
             <p>We are a dedicated educational institution committed to providing quality education to our students. Our focus is not only on academic excellence but also on the holistic development of each individual.</p>
         </section>
         <section class="section">
-            <h2>Our Mission</h2>
+            <h2 class="heading">Our Mission</h2>
             <p>Our mission is to nurture young minds, instill a love for learning, and prepare students to become responsible global citizens.</p>
         </section>
         <section class="section">
-            <h2>Academic Programs</h2>
-            <p>We offer a wide range of academic programs designed to cater to the diverse needs and interests of our students. From STEM to humanities, we provide comprehensive learning experiences that encourage critical thinking and creativity.</p>
+            <h2 class="heading">Academic Programs</h2>
+            <div class="program-card">
+                <h3>STEM Program</h3>
+                <p>Our STEM program offers students the opportunity to explore science, technology, engineering, and mathematics in a hands-on learning environment.</p>
+            </div>
+            <div class="program-card">
+                <h3>Humanities Program</h3>
+                <p>The humanities program encourages students to engage with literature, history, philosophy, and the arts, fostering critical thinking and cultural understanding.</p>
+            </div>
+            <div class="program-card">
+                <h3>Arts Program</h3>
+                <p>Our arts program provides students with opportunities to express their creativity through visual arts, music, drama, and more.</p>
+            </div>
         </section>
         <section class="section">
-            <h2>Extracurricular Activities</h2>
-            <p>At My School, we believe in the importance of extracurricular activities in the holistic development of our students. From sports to arts and community service, we offer a variety of opportunities for students to explore their interests and talents outside the classroom.</p>
+            <h2 class="heading">Extracurricular Activities</h2>
+            <div class="grid-container">
+                <div class="grid-item"><img src="school.jpg" alt="Sports 1"></div>
+                <div class="grid-item"><img src="school.jpg" alt="Sports 2"></div>
+                <div class="grid-item"><img src="school.jpg" alt="Sports 3"></div>
+                <div class="grid-item"><img src="school.jpg" alt="Sports 4"></div>
+                <div class="grid-item"><img src="school.jpg" alt="Sports 5"></div>
+                <div class="grid-item"><img src="school.jpg" alt="Sports 6"></div>
+            </div>
         </section>
         <section class="section">
-            <h2>Testimonials</h2>
-            <blockquote>
-                <p>"My experience at My School has been truly transformative. The supportive environment and dedicated teachers have helped me grow academically and personally."</p>
-                <footer>- John Doe, Class of 2024</footer>
-            </blockquote>
-            <blockquote>
-                <p>"I'm grateful for the opportunities My School has provided me. The extracurricular activities have allowed me to discover my passion for music, and the academic rigor has prepared me for college."</p>
-                <footer>- Jane Smith, Class of 2023</footer>
-            </blockquote>
+            <h2 class="heading">Testimonials</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-carousel-content">
+                    <div class="testimonial-card">
+                        <p class="testimonial">"My experience at My School has been truly transformative. The supportive environment and dedicated teachers have helped me grow academically and personally."</p>
+                        <footer>- John Doe, Class of 2024</footer>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial">"I'm grateful for the opportunities My School has provided me. The extracurricular activities have allowed me to discover my passion for music, and the academic rigor has prepared me for college."</p>
+                        <footer>- Jane Smith, Class of 2023</footer>
+                    </div>
+                </div>
+                <button class="testimonial-carousel-btn prev">&lt;</button>
+                <button class="testimonial-carousel-btn next">&gt;</button>
+            </div>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 My School. All rights reserved.</p>
     </footer>
+    <script>
+        const testimonialCarousel = document.querySelector('.testimonial-carousel');
+        const testimonialContent = document.querySelector('.testimonial-carousel-content');
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        let index = 0;
+        const testimonialsCount = testimonials.length;
+
+        function showTestimonial(index) {
+            testimonialContent.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            index = (index - 1 + testimonialsCount) % testimonialsCount;
+            showTestimonial(index);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            index = (index + 1) % testimonialsCount;
+            showTestimonial(index);
+        });
+    </script>
 </body>
 </html>
